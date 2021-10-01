@@ -1,0 +1,40 @@
+@font-face {
+    font-family: "Geometria-ExtraLight";
+    src: url('../fonts/Geometria-ExtraLight.woff') format("woff"),
+        url('../fonts/Geometria-ExtraLight.woff2') format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: fallback;
+}
+@font-face {
+    font-family: "Geometria-Light";
+    src: url('../fonts/Geometria-Light.woff') format("woff"),
+        url('../fonts/Geometria-Light.woff2') format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback;
+}
+@font-face {
+    font-family: "Geometria-Medium";
+    src: url('../fonts/Geometria-Medium.woff') format("woff"),
+        url('../fonts/Geometria-Medium.woff2') format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback;
+}
+@font-face {
+    font-family: "Geometria-Regular";
+    src: url('../fonts/Geometria-Regular.woff') format("woff"),
+        url('../fonts/Geometria-Regular.woff2') format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback;
+}
+@font-face {
+    font-family: "Geometria-Bold";
+    src: url('../fonts/Geometria-Bold.woff') format("woff"),
+        url('../fonts/Geometria-Bold.woff2') format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: fallback;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Volkov portfolio",
+  "authors": [
+    "volkov <volkov99.at@gmail.com>"
+  ],
+  "description": "My portfolio",
+  "main": "",
+  "keywords": [
+    "portfolio"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "swiper": "^7.0.6",
+    "aos": "^2.3.4",
+    "jquery": "^3.6.0",
+    "fancybox": "^3.5.7"
+  }
+}
