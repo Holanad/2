@@ -73,11 +73,26 @@ button{
         transition: $default-animation;
     }
 }
-.border{
-    position: relative;
-    z-index: 0;
+.btn-hover{
     &::after{
-
+        position: absolute;
+        width: calc(100% - 6px);
+        height: calc(100% - 4px);
+        content: '';
+        transition: $default-animation;
+        opacity: 0;
+        background: url('../img/background/background-section.png') no-repeat center;
+        top: 50%;
+        left: 50%; 
+        z-index: -1;
+        border-radius: 100px;
+        transform: translate(-50%, -50%);
+    }
+    &:hover{
+        &::after{
+            opacity: 1;
+            transition: $default-animation;
+        }
     }
 }
 .btn-transparent{
@@ -107,7 +122,7 @@ button{
         z-index: -1;
         border-radius: 100px;
         transform: translate(-50%, -50%);
-
+        transition: $default-animation;
     }
 }
 .title{
@@ -620,8 +635,9 @@ button{
                         align-items: center;
                         width: 200px;
                         margin-bottom: 20px;
-                        svg{
+                        img{
                             margin-right: 10px;
+                            width: 50px;
                         }
                         p{
                             font-size: 20px;
@@ -690,6 +706,7 @@ button{
                         object-fit: cover;
                         border-radius: 22px;
                         transform: rotate(3deg);
+                        transition: $default-animation;
                     }
                     .work-item__background{
                         width: 470px;
@@ -702,6 +719,17 @@ button{
                         top: 0;
                         transform: rotate(-9deg);
                         z-index: -1;
+                        transition: $default-animation;
+                    }
+                    &:hover{
+                        img{
+                            transform: rotate(0deg);
+                            transition: $default-animation;
+                        }
+                        .work-item__background{
+                            transform: rotate(0deg);
+                            transition: $default-animation;
+                        }
                     }
                 }
                 &__info{
@@ -788,91 +816,203 @@ button{
             font-weight: normal;
             color: #fff;
             margin-top: 100px;
-            margin-bottom: 55px;
+            margin-bottom: 20px;
+            &:last-child{
+                margin-top: 80px;
+            }
         }
-        .swiper{
-            width: 1060px;
-            .swiper-wrapper{
-                padding: 100px 0px;
-                .swiper-slide{
-                    transition: $default-animation;
-                    .reviews-card{
-                        margin: 0 auto;
-                        padding: 20px 25px;
-                        width: 308px;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        background: rgba(39, 39, 41, 0.72);
-                        box-shadow: 0px 8px 40px -12px rgba(41, 17, 68, 0.18);
-                        border-radius: 22px;
-                        position: relative;
-                        .reviews-video{
-                            height: 170px;
-                            width: 100%;
-                            background: grey;
-                            border-radius: 16px;
-                            margin-bottom: 5px;
-                        }
-                        h4{
-                            font-family: "Geometria-Medium";
-                            font-size: 20px;
-                            line-height: 170%;
-                            color: #FFFFFF;
-                            font-weight: normal;
-                        }
-                        .reviews-social{
+        .reviews-slider{
+            position: relative;
+            .swiper{
+                width: 1060px;
+                position: static;
+                .swiper-wrapper{
+                    padding: 100px 0px;
+                    .swiper-slide{
+                        transition: $default-animation;
+                        .reviews-card{
+                            margin: 0 auto;
+                            padding: 20px 25px;
+                            width: 308px;
                             display: flex;
+                            flex-direction: column;
                             align-items: center;
-                            img{
-                                max-width: 25px;
-                                max-height: 20px;
-                                margin-right: 10px;
-                            }
-                            p{
-                                font-size: 16px;
-                                line-height: 150%;
-                                color: rgba(255, 255, 255, 0.72);
-                            }
-                        }
-                        &__description{
-                            font-family: "Geometria-Light";
-                            padding: 5px 0 15px 0;
-                            font-size: 16px;
-                            line-height: 140%;
-                            color: #fff;
-                            text-align: center;
-                        }
-                        &__link{
-                            padding: 10px 14px;
-                            font-size: 16px;
-                            line-height: 20px;
-                        }
-                        &__background{
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            z-index: 2;
-                            background: rgba(37, 37, 37, 0.72);
-                            backdrop-filter: blur(2px);
+                            background: rgba(39, 39, 41, 0.72);
+                            box-shadow: 0px 8px 40px -12px rgba(41, 17, 68, 0.18);
                             border-radius: 22px;
-                            opacity: 1;
-                            transition: $default-animation;
+                            position: relative;
+                            .reviews-video{
+                                height: 170px;
+                                width: 100%;
+                                border-radius: 16px;
+                                margin-bottom: 5px;
+                                position: relative;
+                                &__poster{
+                                    width: 100%;
+                                    height: 100%;
+                                    position: relative;
+                                    cursor: pointer;
+                                    z-index: 1;
+                                    transition: $default-animation;
+                                    opacity: 1;
+                                    visibility: visible;
+                                    img{
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        display: block;
+                                        border-radius: 16px;
+                                    }
+                                    svg{
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                    }
+                                }
+                                &__poster.opacity{
+                                    opacity: 0;
+                                    z-index: 0;
+                                    visibility: visible;
+                                    transition: $default-animation;
+                                }
+                                video{
+                                    width: 100%;
+                                    position: absolute;
+                                    top: 0;
+                                    width: 100%;
+                                    display: block;
+                                    object-fit: cover;
+                                    object-position: center center;
+                                    height: 100%;
+                                    border-radius: 16px;
+                                }
+                            }
+                            h4{
+                                font-family: "Geometria-Medium";
+                                font-size: 20px;
+                                line-height: 170%;
+                                color: #FFFFFF;
+                                font-weight: normal;
+                            }
+                            .reviews-social{
+                                display: flex;
+                                align-items: center;
+                                img{
+                                    max-width: 25px;
+                                    max-height: 20px;
+                                    margin-right: 10px;
+                                }
+                                p{
+                                    font-size: 16px;
+                                    line-height: 150%;
+                                    color: rgba(255, 255, 255, 0.72);
+                                    position: relative;
+                                    &::after{
+                                        content: '';
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+                                        background: #fff;
+                                        width: 0;
+                                        height: 1px;
+                                        transition: $default-animation;
+                                    }
+                                }
+                                &:hover{
+                                    p{
+                                        &::after{
+                                            width: 100%;
+                                            transition: $default-animation;
+                                        }
+                                    }
+                                }
+                            }
+                            &__description{
+                                font-family: "Geometria-Light";
+                                padding: 5px 0 15px 0;
+                                font-size: 16px;
+                                line-height: 140%;
+                                color: #fff;
+                                text-align: center;
+                            }
+                            &__link{
+                                padding: 10px 14px;
+                                font-size: 16px;
+                                line-height: 20px;
+                                transition: $default-animation;
+                                &:hover{
+                                    
+                                    &::after{
+                                        transition: $default-animation;
+                                        opacity: 0;
+                                    }
+                                }
+                            }
+                            &__background{
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                z-index: 2;
+                                background: rgba(37, 37, 37, 0.72);
+                                backdrop-filter: blur(2px);
+                                border-radius: 22px;
+                                opacity: 1;
+                                transition: $default-animation;
+                            }
+                        }
+                    }
+                    .swiper-slide-active{
+                        transition: $default-animation;
+                        transform: scale(1.2);
+                        .reviews-card{
+                            background: rgba(39, 39, 41, 0.72);
+                            box-shadow: 0px 8px 40px -12px rgba(41, 17, 68, 0.18);
+                            &__background{
+                                opacity: 0;
+                                visibility: hidden;
+                            }
                         }
                     }
                 }
-                .swiper-slide-active{
-                    transition: $default-animation;
-                    transform: scale(1.2);
-                    .reviews-card{
-                        background: rgba(39, 39, 41, 0.72);
-                        box-shadow: 0px 8px 40px -12px rgba(41, 17, 68, 0.18);
-                        &__background{
-                            opacity: 0;
-                        }
+                .swiper-pagination{
+                    .swiper-pagination-bullet{
+                        background: $btn-buttet;
+                        width: 12px;
+                        height: 12px;
+                        opacity: 1;
+                        transition: $default-animation;
+                        margin: 0 6px;
                     }
+                    .swiper-pagination-bullet-active{
+                        background: $btn-buttet-active;
+                        transform: scale(1.33);
+                        transition: $default-animation;
+                    }
+                }
+                .reviews-slider-prev{
+                    display: inline-block;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                    transition: $default-animation;
+                }
+                .reviews-slider-next{
+                    display: inline-block;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                    transition: $default-animation;
+                }
+                .swiper-button-disabled{
+                    opacity: 0.6;
+                    transition: $default-animation;
                 }
             }
         }

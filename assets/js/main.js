@@ -12,9 +12,33 @@ const mainLinkElem = document.querySelector('.main-buttons a');
 //Кружки на главной
 const mainCirclesElems = document.querySelectorAll('.main-circles span');
 //Акардеон
-const featureLinkElems = document.querySelectorAll('.skill-service__item');
-const featureSubElems = document.querySelectorAll('.skill-service-content');
+const skillServiceItemElems = document.querySelectorAll('.skill-service__item');
+const skillServiceContentElems = document.querySelectorAll('.skill-service-content');
 const accordionArrowElems = document.querySelectorAll('.accordion-arrow');
+//Видео на отзывах
+const reviewsVideoPosterElems = document.querySelectorAll('.reviews-video__poster');
+const reviewsVideoElems = document.querySelectorAll('.reviews-video video');
+
+
+const reviewVideoPlay = () => {
+    for (let i = 0; i < reviewsVideoPosterElems.length; i++) {
+        reviewsVideoPosterElems[i].addEventListener('click', () => {
+            if(reviewsVideoPosterElems[i].classList.contains('opacity')) {
+                reviewsVideoPosterElems[i].classList.remove('opacity')
+                reviewsVideoElems[i].play();
+            } else {
+                reviewsVideoPosterElems.forEach((reviewsVideoPosterElem) => {
+                    reviewsVideoPosterElem.classList.remove('opacity')
+                })
+                reviewsVideoElems.forEach((reviewsVideoElem) => {
+                    reviewsVideoElem.pause()
+                })
+                reviewsVideoPosterElems[i].classList.add('opacity')
+                reviewsVideoElems[i].play();
+            }
+        })
+    }
+}
 
 const hoverMainButton = () => {
     mainButtonElem.addEventListener('mouseover', () => {
@@ -54,50 +78,45 @@ const animationMainCircle = () => {
 }
 
 //Акардеон
-document.addEventListener('DOMContentLoaded', () => {
-
-        for (let i = 0; i < featureLinkElems.length; i++) {
-        featureLinkElems[i].addEventListener('click', () => {
-            if(featureLinkElems[i].classList.contains('active')) {
-                featureLinkElems[i].classList.remove('active')
+const accordion = () => {
+    for (let i = 0; i < skillServiceItemElems.length; i++) {
+        skillServiceItemElems[i].addEventListener('click', () => {
+            if(skillServiceItemElems[i].classList.contains('active')) {
+                skillServiceItemElems[i].classList.remove('active')
                 accordionArrowElems[i].classList.remove('rotate')
-                featureSubElems[i].classList.add('hidden')
+                skillServiceContentElems[i].classList.add('hidden')
             } else {
-                featureLinkElems.forEach((featureLinkElem) => {
-                    featureLinkElem.classList.remove('active')
+                skillServiceItemElems.forEach((skillServiceItemElem) => {
+                    skillServiceItemElem.classList.remove('active')
                 })
                 accordionArrowElems.forEach((accordionArrowElem) => {
                     accordionArrowElem.classList.remove('rotate')
                 })
-                featureSubElems.forEach((featureSubElem) => {
-                    featureSubElem.classList.add('hidden')
+                skillServiceContentElems.forEach((skillServiceContentElem) => {
+                    skillServiceContentElem.classList.add('hidden')
                 })
-                featureLinkElems[i].classList.add('active')
-                featureSubElems[i].classList.remove('hidden')
+                skillServiceItemElems[i].classList.add('active')
+                skillServiceContentElems[i].classList.remove('hidden')
                 accordionArrowElems[i].classList.add('rotate')
             }
         })
     }
-});
+}
 const swiperReviews = new Swiper('.reviews-video-block', {
     direction: 'horizontal',
     loop: false,
     slidesPerView: 3,
     centeredSlides: true,
-    // If we need pagination
     pagination: {
       el: '.swiper-pagination',
+      clickable: true,
     },
-  
-    // Navigation arrows
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.reviews-slider-next',
+      prevEl: '.reviews-slider-prev',
     },
-  
-    // And if we need scrollbar
-    //initialSlide: 0,
 });
-
+accordion();
 hoverMainButton();
+reviewVideoPlay();
 animationMainCircle();
