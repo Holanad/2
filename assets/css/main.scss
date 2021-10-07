@@ -787,7 +787,7 @@ button{
         }
     }
     &-circles{
-        svg{
+        img{
             &:nth-child(1){
                 position: absolute;
                 right: 0;
@@ -801,13 +801,14 @@ button{
             }
             &:nth-child(3){
                 position: absolute;
-                bottom: -200px;
+                bottom: -60px;
                 right: 0;
             }
         }
     }
 }
 .reviews{
+    position: relative;
     &-wrapper{
         h3{
             font-family: "Geometria-Regular";
@@ -1015,6 +1016,186 @@ button{
                     transition: $default-animation;
                 }
             }
+        }
+        .reviews-market{
+            &__text{
+
+            }
+            &-block{
+                margin-top: 30px;
+                display: flex;
+                justify-content: space-between;
+                .reviews-market-item{
+                    position: relative;
+                    z-index: 0;
+                    padding: 15px 20px 25px 15px;
+                    width: 576px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    &::before{
+                        position: absolute;
+                        content: '';
+                        background: linear-gradient(99.53deg, #DD3C56 -23.06%, #8E24AA 13.63%, #039BE5 128.08%);      
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;   
+                        z-index: -1;  
+                        border-radius: 16px;
+                    }
+                    &::after{
+                        position: absolute;
+                        content: '';
+                        background: url('../img/background/background-section.png') no-repeat center;      
+                        width: calc(100% - 8px);
+                        height: calc(100% - 8px);
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);     
+                        z-index: -1;
+                        border-radius: 16px;  
+                    }
+                    &__wrapper{
+                        position: relative;
+                        z-index: 2;
+                        .reviews-market-item__info{
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: space-between;
+                            padding-bottom: 20px;
+                            border-bottom: 1px solid #fff;
+                            .reviews-market-item__main{
+                                .reviews-market-item__name{
+                                    font-family: "Geometria-Medium";
+                                    font-size: 20px;
+                                    line-height: 100.5%;
+                                }
+                                .reviews-market-item__task{
+                                    font-size: 16px;
+                                    line-height: 25px;
+                                    margin-top: 10px;
+                                    max-width: 400px;
+                                }
+                            }
+                        }
+                        .reviews-market-item__review{
+                            padding-top: 20px;
+                            margin-bottom: 25px;
+                            span{
+                                font-family: "Geometria-Medium";
+                                font-size: 20px;
+                                line-height: 100.5%;
+                            }
+                            .reviews-market-item__text{
+                                font-size: 16px;
+                                line-height: 25px;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                    a{
+                        font-family: "Geometria-Light";
+                        display: inline-block;
+                        padding: 10px 15px;
+                        font-size: 16px;
+                        line-height: 20px;
+                        width: fit-content;
+                        &::after{
+                            background: url('../img/background/background-section.png') no-repeat center;  
+                        }
+                        &:hover{
+                            &::after{
+                                opacity: 0;
+                            }
+                        }
+                    }
+                    &__elipse{
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        z-index: 0;
+                    }
+                }
+            }
+        }
+    }
+    &__circle{
+        &_yellow{
+            position: absolute;
+            left: 0;
+            top: 870px;
+        }
+        &_purple{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}
+.documentation{
+    position: relative;
+    &-wrapper{
+        .documentation-text{
+            margin: 80px 0 30px 0;
+        }
+        .documentation-block{
+            .documentation-item{
+                position: relative;
+                z-index: 0;
+                padding: 34px 40px;
+                background: rgba(51, 51, 51, 0.24);
+                border-radius: 22px;
+                h3{
+                    font-family: "Geometria-Regular";
+                    font-size: 42px;
+                    line-height: 140%;
+                    font-weight: normal;
+                    color: #fff;
+                }
+                p{
+                    font-family: "Geometria-Light";
+                    margin: 30px 0;
+                }
+                .documentation-item__button{
+                    a{
+                        display: inline-block;
+                    }
+                }
+                .documentation-circle-purple{
+                    position: absolute;
+                    bottom: 0;
+                    right: 300px;
+                }
+                .documentation-circle-yellow{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+            }
+        }
+    }
+    .documentation-css{
+        position: absolute;
+        top: 100px;
+        left: 0;
+    }
+    .documentation-html{
+        position: absolute;
+        bottom: 35px;
+        right: 0;
+    }
+}
+.contact{
+    &-wrapper{
+        h3{
+            font-family: "Geometria-Regular";
+            font-size: 42px;
+            line-height: 140%;
+            font-weight: normal;
+            color: #fff;
+            margin-top: 100px;
+            margin-bottom: 20px;
         }
     }
 }
