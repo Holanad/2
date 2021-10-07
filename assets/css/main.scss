@@ -45,6 +45,7 @@ span{
 button{
     outline: none;
     border: none;
+    background: none;
 }
 .btn{
     position: relative;
@@ -1187,6 +1188,8 @@ button{
     }
 }
 .contact{
+    padding-bottom: 100px;
+    position: relative;
     &-wrapper{
         h3{
             font-family: "Geometria-Regular";
@@ -1197,6 +1200,150 @@ button{
             margin-top: 100px;
             margin-bottom: 20px;
         }
+        .contact-block{
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            .contact-form{
+                width: 45%;
+                display: flex;
+                flex-direction: column;
+                input, textarea{
+                    border: 2px solid #FFFFFF;
+                    border-radius: 10px;
+                    background: none;
+                    font-size: 24px;
+                    line-height: 32px;
+                    color: #fff;
+                    padding: 20px 24px;
+                    font-family: "Geometria-Light";
+                    &::placeholder{
+                        color: #BDBDBD;
+                    }
+                    &:focus{
+                        border: 2px solid rgba(106, 17, 203, 1);
+                    }
+                }
+                ::-webkit-scrollbar {
+                    width: 7px;
+                }
+                ::-webkit-scrollbar-track {
+                    background: rgba(106, 17, 203, 0.3);
+                    border: 4px solid transparent;
+                    background-clip: content-box;
+                }
+                ::-webkit-scrollbar-thumb {
+                    -webkit-border-radius: 0px;
+                    background: $scroll;
+                    border-radius: 5px;
+                }
+                input{
+                    margin-bottom: 20px;
+                }
+                button{
+                    margin-top: 40px;
+                    font-family: "Geometria-Light";
+                    font-size: 20px;
+                    line-height: 25px;
+                    color: #fff
+                }
+            }
+            .contact-social{
+                width: fit-content;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                &-item{
+                    background: rgba(51, 51, 51, 0.24);
+                    width: 400px;
+                    border-radius: 5px;
+                    margin-bottom: 40px;
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                    &__icon{
+                        width: 80px;
+                        height: 65px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 5px;
+                        svg{
+                            width: 28px;
+                        }
+                    }
+                    a{
+                        display: flex;
+                        align-items: center;
+                        p{
+                            font-family: "Geometria-Light";
+                            padding: 0 20px;
+                            font-size: 20px;
+                            line-height: 25px;
+                            text-align: center;
+                            width: 100%;
+                        }
+                    }
+                    &:nth-child(1){
+                        .contact-social-item__icon{
+                            background: $vk;
+                            box-shadow: 0px 0px 10px 5px #2B27EA;
+                        }
+                    }
+                    &:nth-child(2){
+                        .contact-social-item__icon{
+                            background: $telegram;
+                            box-shadow: 0px 0px 10px 5px #1575E1;
+                        }
+                    }
+                    &:nth-child(3){
+                        .contact-social-item__icon{
+                            background: $inst;
+                            box-shadow: 0px 0px 10px 5px #D96D26;
+                        }
+                    }
+                    &:nth-child(4){
+                        .contact-social-item__icon{
+                            background: $viber;
+                            box-shadow: 0px 0px 10px 5px #8A29C0;
+                        }
+                    }
+                    &:nth-child(5){
+                        .contact-social-item__icon{
+                            background: $mail;
+                            box-shadow: 0px 0px 10px 5px #FD3030;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-frontend{
+        position: absolute;
+        top: 370px;
+        left: 0;
+    }
+}
+.footer{
+    position: relative;
+    background: url('../img/background/background-section.png') no-repeat center;
+    background-size: 101%;
+    &-container{
+        padding: 17px 118px;
+        p{
+            font-family: "Geometria-Light";
+            font-size: 16px;
+            line-height: 140%;
+            text-align: center;
+        }
+    }
+    &-background{
+        background: rgba(2, 2, 2, 0.36);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 }
 .detailed{
