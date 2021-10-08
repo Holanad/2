@@ -1190,6 +1190,7 @@ button{
 .contact{
     padding-bottom: 100px;
     position: relative;
+    z-index: 0;
     &-wrapper{
         h3{
             font-family: "Geometria-Regular";
@@ -1254,7 +1255,7 @@ button{
                 flex-direction: column;
                 justify-content: center;
                 &-item{
-                    background: rgba(51, 51, 51, 0.24);
+                    background: rgba(51, 51, 51, 0.7);
                     width: 400px;
                     border-radius: 5px;
                     margin-bottom: 40px;
@@ -1322,6 +1323,7 @@ button{
         position: absolute;
         top: 370px;
         left: 0;
+        z-index: -1;
     }
 }
 .footer{
